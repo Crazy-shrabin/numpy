@@ -186,3 +186,45 @@ print(np.min(mat, axis=0))      # Column-wise min
 nums = np.arange(1, 6)
 mult_table = nums[:, np.newaxis] * nums
 print(mult_table)
+
+# 81. Normalize random array (0 to 1)
+arr = np.random.rand(10)
+norm = (arr - np.min(arr)) / (np.max(arr) - np.min(arr))
+
+# 82. Checkerboard pattern (8x8)
+# I used slicing for the alternating rows and columns
+board = np.zeros((8, 8), dtype=int)
+board[1::2, ::2] = 1
+board[::2, 1::2] = 1
+
+# 83-84. Unique elements and frequencies
+data = np.array([1, 2, 2, 3, 3, 3, 4])
+unique, counts = np.unique(data, return_counts=True)
+
+# 85. Shuffle
+np.random.shuffle(data)
+
+# 86. Common elements between two arrays
+arr_a = np.array([1, 2, 3, 4])
+arr_b = np.array([3, 4, 5, 6])
+common = np.intersect1d(arr_a, arr_b)
+
+# 87. Remove duplicates
+unique_only = np.unique(data)
+
+# 88. Missing numbers (1-100)
+# Created a full range and used np.setdiff1d
+full_range = np.arange(1, 101)
+missing = np.setdiff1d(full_range, data)
+
+# 89. 1D to 3D
+arr_1d = np.arange(24)
+arr_3d = arr_1d.reshape((2, 3, 4))
+
+# 90. Border matrix
+# Created a 5x5 of zeros and set the edges to 1
+border = np.zeros((5, 5))
+border[0, :] = 1
+border[-1, :] = 1
+border[:, 0] = 1
+border[:, -1] = 1
