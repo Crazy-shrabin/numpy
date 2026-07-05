@@ -1,0 +1,188 @@
+import numpy as np
+
+# 1. NumPy version
+print(np.__version__)
+
+# 2. 1 to 10
+arr2 = np.arange(1, 11)
+
+# 3. Zeros
+arr3 = np.zeros(10)
+
+# 4. Ones (3x3)
+arr4 = np.ones((3, 3))
+
+# 5. Identity matrix 5x5
+arr5 = np.eye(5)
+
+# 6. Even numbers 2 to 50
+arr6 = np.arange(2, 51, 2)
+
+# 7. Odd numbers 1 to 99
+arr7 = np.arange(1, 100, 2)
+
+# 8. 10 to 100, step 5
+arr8 = np.arange(10, 101, 5)
+
+# 9. From list
+arr9 = np.array([1, 2, 3])
+
+# 10. From tuple
+arr10 = np.array((4, 5, 6))
+
+# 11-13. Shape, Dim, Dtype
+print(arr4.shape)
+print(arr4.ndim)
+print(arr4.dtype)
+
+# 14. Random size 10
+arr14 = np.random.rand(10)
+
+# 15. 10 random integers 1-100
+arr15 = np.random.randint(1, 101, 10)
+
+# 16. Reshape 12 into (3,4)
+arr16 = np.arange(12).reshape(3, 4)
+
+# 17. Flatten
+arr17 = arr16.flatten()
+
+# 18. 4x4 matrix filled with 7
+arr18 = np.full((4, 4), 7)
+
+# 19. Size
+print(arr18.size)
+
+# 20. Diagonal matrix
+arr20 = np.diag([1, 2, 3, 4])
+
+# 21. Convert float to int
+arr21 = np.array([1.5, 2.7], dtype=float).astype(int)
+
+# 22. linspace 0 to 1
+arr22 = np.linspace(0, 1, 5)
+
+# 23. Reverse
+arr23 = arr2[::-1]
+
+# 24. Sort
+arr24 = np.sort(arr15)
+
+# 25-27. Max, Min, Indices
+print(np.max(arr24), np.min(arr24))
+print(np.argmax(arr24), np.argmin(arr24))
+
+# 28. Transpose
+arr28 = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr28.T)
+
+# 29. Concatenate
+arr29 = np.concatenate((arr9, arr10))
+
+# 30. Split
+arr30 = np.array_split(arr2, 3)
+
+# Creating two simple arrays for these operations
+a = np.array([10, 20, 30, 40])
+b = np.array([1, 2, 3, 4])
+
+# 31-34. Basic element-wise math
+print(a + b)  # Addition [cite: 9]
+print(a - b)  # Subtraction [cite: 9]
+print(a * b)  # Multiplication [cite: 9]
+print(a / b)  # Division [cite: 9]
+
+# 35-39. Powers, sqrt, log, etc.
+print(a**2)   # Square [cite: 9]
+print(a**3)   # Cube [cite: 9]
+print(np.sqrt(a)) # Square root [cite: 9]
+print(np.exp(a))  # Exponential [cite: 9]
+print(np.log(a))  # Logarithm [cite: 9]
+
+# 40-44. Stats
+print(np.sum(a))    # Sum [cite: 9]
+print(np.mean(a))   # Mean [cite: 9]
+print(np.median(a)) # Median [cite: 9]
+print(np.std(a))    # Standard deviation [cite: 9]
+print(np.var(a))    # Variance [cite: 9]
+
+# 45-47. Cumulatives and products
+print(np.cumsum(a)) # Cumulative sum [cite: 9]
+print(np.cumprod(a))# Cumulative product [cite: 9]
+print(np.prod(a))   # Total product [cite: 9]
+
+# 48. Rounding
+vals = np.array([1.234, 2.567])
+print(np.round(vals, 2)) # [cite: 9]
+
+# 49-50. Handling negatives
+c = np.array([10, -5, 20, -1])
+print(np.abs(c)) # Absolute values [cite: 9]
+c[c < 0] = 0     # Replace negative with zero [cite: 9]
+print(c)
+
+# Setting up a 1D and a 2D array for testing
+arr = np.array([10, 20, 30, 40, 50, 60, 70, 80])
+mat = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# 51-52. First and last elements
+print(arr[0], arr[-1])
+
+# 53-54. First 5 and last 5 elements
+print(arr[:5], arr[-5:])
+
+# 55-56. Alternate elements and reverse
+print(arr[::2])
+print(arr[::-1])
+
+# 57-58. Specific row and column
+print(mat[1, :])    # Second row
+print(mat[:, 1])    # Second column
+
+# 59. Submatrix (e.g., from a 3x3)
+mat5x5 = np.arange(25).reshape(5, 5)
+print(mat5x5[1:4, 1:4])
+
+# 60-61. Replacing elements
+arr[2] = 100
+arr[arr % 2 == 0] = -1
+
+# 62-64. Conditional selection
+print(arr[arr > 50])              # Elements > 50
+print(np.where(arr > 50))         # Indices of elements > 50
+print(arr[arr % 3 == 0])          # Divisible by 3
+
+# 65. Diagonal elements
+print(np.diag(mat))
+
+# Let's set up two matrices for the math
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+# 66-69. Matrix arithmetic
+print(A + B)            # Addition
+print(A - B)            # Subtraction
+print(A * B)            # Element-wise multiplication
+print(np.dot(A, B))     # True matrix multiplication
+
+# 70. Transpose
+print(A.T)
+
+# 71-75. Advanced Matrix Ops
+print(np.linalg.det(A))         # Determinant
+print(np.linalg.inv(A))         # Inverse
+vals, vecs = np.linalg.eig(A)   # Eigenvalues and Eigenvectors
+print(np.linalg.matrix_rank(A)) # Rank
+
+# 76-79. Row/Col operations
+mat = np.random.randint(1, 10, (4, 4))
+print(np.sum(mat, axis=1))      # Row sums
+print(np.sum(mat, axis=0))      # Column sums
+print(np.max(mat, axis=1))      # Row-wise max
+print(np.min(mat, axis=0))      # Column-wise min
+
+# 80. Multiplication table (5x5)
+# This was a fun one—using broadcasting!
+nums = np.arange(1, 6)
+mult_table = nums[:, np.newaxis] * nums
+print(mult_table)
