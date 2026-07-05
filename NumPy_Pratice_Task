@@ -228,3 +228,51 @@ border[0, :] = 1
 border[-1, :] = 1
 border[:, 0] = 1
 border[:, -1] = 1
+
+# 91. One-hot encoding
+# Creating a dummy array of classes [0, 1, 2]
+labels = np.array([0, 2, 1, 0])
+n_values = np.max(labels) + 1
+one_hot = np.eye(n_values)[labels]
+
+# 92-93. Standardization & Min-Max
+arr = np.array([10, 20, 30, 40, 50])
+z_score = (arr - np.mean(arr)) / np.std(arr) # Standardization [cite: 16, 17]
+min_max = (arr - np.min(arr)) / (np.max(arr) - np.min(arr)) # Min-Max [cite: 16, 17]
+
+# 94. Sliding window (simple approach)
+# A 3-element sliding window
+data = np.arange(10)
+window_size = 3
+windows = np.lib.stride_tricks.sliding_window_view(data, window_size)
+
+# 95. Pairwise Euclidean distance
+# Using broadcasting for a quick calculation
+pts = np.array([[0, 0], [1, 1], [2, 2]])
+dist = np.sqrt(np.sum((pts[:, np.newaxis] - pts)**2, axis=-1))
+
+# 96. Dice simulation
+# 1000 rolls
+rolls = np.random.randint(1, 7, 1000)
+probs = np.bincount(rolls)[1:] / 1000
+
+# 97. Covariance matrix
+data_mat = np.random.rand(5, 3)
+cov_mat = np.cov(data_mat, rowvar=False)
+
+# 98. Simple Linear Regression (y = mx + b)
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 4, 5, 4, 5])
+m = (np.mean(x*y) - np.mean(x)*np.mean(y)) / (np.mean(x**2) - np.mean(x)**2)
+b = np.mean(y) - m * np.mean(x)
+
+# 99. Image inversion
+# Mocking an image as a 0-255 matrix
+img = np.random.randint(0, 256, (10, 10))
+inverted = 255 - img
+
+# 100. Student Marks Analysis System
+# Simple dictionary or structure to hold data
+marks = np.array([[85, 90, 80], [70, 60, 75], [95, 95, 90]])
+averages = np.mean(marks, axis=1) # 
+topper = np.argmax(averages)
